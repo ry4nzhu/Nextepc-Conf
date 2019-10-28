@@ -13,21 +13,22 @@ curl -sL https://deb.nodesource.com/setup_10.x
 sudo apt-get -y install nodejs
 cd /opt
 sudo git clone https://github.com/nextepc/nextepc
+git clone https://github.com/ry4nzhu/Nextepc-Conf.git
 cd nextepc
 autoreconf -iv
 ./configure --prefix=`pwd`/install
 make -j `nproc`
 make install
-exit
+# exit
 cd /opt/nextepc/webui
 sudo npm install
-sudo bash
+# sudo bash
 cat << EOF > /etc/systemd/network/98-nextepc.netdev
 [NetDev]
 Name=pgwtun
 Kind=tun
 EOF
-exit
+# exit
 sudo systemctl restart systemd-networkd
 sudo ip addr add 192.168.0.1/24 dev pgwtun
 sudo ip link set up dev pgwtun
@@ -45,4 +46,4 @@ mongoimport --db nextepc hss_nextepc_subscribers.json
 # export mongodb database to csv file
 # mongoexport --db [database name] --collection [collection name] --out [.json]
 
-# sudo /opt/nextepc/install/bin/nextepc-epcd
+sudo /opt/nextepc/install/bin/nextepc-epcd

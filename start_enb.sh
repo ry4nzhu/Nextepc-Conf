@@ -1,6 +1,7 @@
 #!/bin/bash
 sudo bash
 cd /opt/
+git clone https://github.com/ry4nzhu/Nextepc-Conf.git
 git clone https://gitlab.eurecom.fr/oai/openairinterface5g/ enb_folder
 cd enb_folder
 git checkout -f v1.0.0
@@ -11,8 +12,10 @@ sudo chown -R ryanzhu ./ue_folder/
 
 #edit ue_folder/openair3/NAS/TOOLS/ue_eurecom_test_sfr.conf
 
-
 sudo ifconfig lo: 127.0.0.2 netmask 255.0.0.0 up
+
+mv /opt/Nextepc-Conf/ue_eurecom_test_sfr.conf /opt/ue_folder/openair3/NAS/TOOLS/
+mv /opt/Nextepc-Conf/rcc.band7.tm1.nfapi.conf /opt/enb_folder/ci-scripts/conf_files/
 
 #build enb
 cd /opt/enb_folder/
@@ -32,6 +35,7 @@ cp usim ../../cmake_targets/
 cp nvram ../../cmake_targets/
 cd /opt/ue_folder/cmake_targets/tools
 source init_nas_s1 UE
+
 
 cd /opt/enb_folder/cmake_targets
 #start enb
