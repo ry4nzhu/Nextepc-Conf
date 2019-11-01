@@ -1,3 +1,3 @@
 # Nextepc-Conf
 
-## openair2
+## Configuration file for E2E project on Powder Experiment

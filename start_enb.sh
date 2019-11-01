@@ -1,5 +1,6 @@
 #!/bin/bash
-sudo bash
+# sudo bash
+# require sudo bash and sudo 
 cd /opt/
 git clone https://github.com/ry4nzhu/Nextepc-Conf.git
 git clone https://gitlab.eurecom.fr/oai/openairinterface5g/ enb_folder

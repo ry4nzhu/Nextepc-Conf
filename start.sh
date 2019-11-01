@@ -1,6 +1,8 @@
 #!/bin/bash
-sudo bash
+# sudo bash
 # sudo apt-get remove -y --purge man-db
+
+# require sudo bash
 sudo apt-get update
 sudo apt-get -y install mongodb
 sudo systemctl start mongodb
