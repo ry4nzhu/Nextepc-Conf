@@ -22,8 +22,8 @@ autoreconf -iv
 make -j `nproc`
 make install
 # exit
-cd /opt/nextepc/webui
-sudo npm install
+# cd /opt/nextepc/webui
+# sudo npm install
 # sudo bash
 cat << EOF > /etc/systemd/network/98-nextepc.netdev
 [NetDev]
@@ -41,9 +41,9 @@ cd /opt/nextepc/install/etc/nextepc
 
 # add subscriptors to the database
 # mongoimport --db [name] --file [filename]
-mongoimport --db nextepc hss_nextepc_account.json
-mongoimport --db nextepc hss_nextepc_session.json
-mongoimport --db nextepc hss_nextepc_subscribers.json
+mongoimport --db nextepc --collection accounts hss_nextepc_account.json
+mongoimport --db nextepc --collection sessions hss_nextepc_session.json
+mongoimport --db nextepc --collection subscribers hss_nextepc_subscribers.json
 
 # export mongodb database to csv file
 # mongoexport --db [database name] --collection [collection name] --out [.json]
