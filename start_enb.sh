@@ -37,12 +37,14 @@ cp nvram ../../cmake_targets/
 cd /opt/ue_folder/cmake_targets/tools
 source init_nas_s1 UE
 
+# configuration done
 
-cd /opt/enb_folder/cmake_targets
+
+# cd /opt/enb_folder/cmake_targets
 #start enb
-sudo -E ./lte_build_oai/build/lte-softmodem -O ../ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf > enb.log 2>&1 &
+# sudo -E ./lte_build_oai/build/lte-softmodem -O ../ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf > enb.log 2>&1 &
 
 #start ue
-cd /opt/ue_folder/cmake_targets
-sudo -E ./lte_build_oai/build/lte-uesoftmodem -O ../ci-scripts/conf_files/ue.nfapi.conf --L2-emul 3 --num-ues 2 --nums_ue_thread 2 > ue.log 2>&1 &
+# cd /opt/ue_folder/cmake_targets
+# sudo -E ./lte_build_oai/build/lte-uesoftmodem -O ../ci-scripts/conf_files/ue.nfapi.conf --L2-emul 3 --num-ues 2 --nums_ue_thread 2 > ue.log 2>&1 &
 

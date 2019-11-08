@@ -48,4 +48,4 @@ mongoimport --db nextepc --collection subscribers hss_nextepc_subscribers.json
 # export mongodb database to csv file
 # mongoexport --db [database name] --collection [collection name] --out [.json]
 
-sudo /opt/nextepc/install/bin/nextepc-epcd
+# sudo /opt/nextepc/install/bin/nextepc-epcd
