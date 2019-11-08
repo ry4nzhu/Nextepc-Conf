@@ -41,9 +41,9 @@ mv /opt/nextepc.conf /opt/nextepc/install/etc/nextepc
 
 # add subscriptors to the database
 # mongoimport --db [name] --file [filename]
-mongoimport --db nextepc --collection accounts hss_nextepc_account.json
-mongoimport --db nextepc --collection sessions hss_nextepc_session.json
-mongoimport --db nextepc --collection subscribers hss_nextepc_subscribers.json
+mongoimport --db nextepc --collection accounts /opt/hss_nextepc_account.json
+mongoimport --db nextepc --collection sessions /opt/hss_nextepc_session.json
+mongoimport --db nextepc --collection subscribers /opt/hss_nextepc_subscribers.json
 
 # export mongodb database to csv file
 # mongoexport --db [database name] --collection [collection name] --out [.json]
