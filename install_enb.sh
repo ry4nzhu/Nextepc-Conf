@@ -3,7 +3,7 @@
 # require sudo bash and sudo 
 cd /opt/
 git clone https://github.com/ry4nzhu/Nextepc-Conf.git
-git clone git@github.com:ry4nzhu/OpenairInterface-Scheduler.git enb_folder
+git clone https://github.com/ry4nzhu/OpenairInterface-Scheduler.git enb_folder
 git clone https://gitlab.eurecom.fr/oai/openairinterface5g/ ue_folder
 cd ue_folder
 git checkout -f v1.0.0
