@@ -4,8 +4,8 @@
 
 ### Script to auto install eNB
 
-* `sudo bash && sudo bash start_end.sh`
+* `sudo bash && sudo bash install_enb.sh`
 
 ### Script to auto install next-EPC
 
-* `sudo bash && sudo bash start_epc.sh`
+* `sudo bash && sudo bash install_epc.sh`
