@@ -3,11 +3,12 @@
 # require sudo bash and sudo 
 cd /opt/
 git clone https://github.com/ry4nzhu/Nextepc-Conf.git
-git clone https://gitlab.eurecom.fr/oai/openairinterface5g/ enb_folder
-cd enb_folder
+git clone git@github.com:ry4nzhu/OpenairInterface-Scheduler.git enb_folder
+git clone https://gitlab.eurecom.fr/oai/openairinterface5g/ ue_folder
+cd ue_folder
 git checkout -f v1.0.0
 cd ..
-cp -Rf enb_folder ue_folder
+# cp -Rf enb_folder ue_folder
 sudo chown -R ryanzhu ./enb_folder/
 sudo chown -R ryanzhu ./ue_folder/
 
@@ -15,8 +16,8 @@ sudo chown -R ryanzhu ./ue_folder/
 
 sudo ifconfig lo: 127.0.0.2 netmask 255.0.0.0 up
 
-mv /opt/Nextepc-Conf/ue_eurecom_test_sfr.conf /opt/ue_folder/openair3/NAS/TOOLS/
-mv /opt/Nextepc-Conf/rcc.band7.tm1.nfapi.conf /opt/enb_folder/ci-scripts/conf_files/
+cp /opt/Nextepc-Conf/ue_eurecom_test_sfr.conf /opt/ue_folder/openair3/NAS/TOOLS/
+cp /opt/Nextepc-Conf/rcc.band7.tm1.nfapi.conf /opt/enb_folder/ci-scripts/conf_files/
 
 #build enb
 cd /opt/enb_folder/
