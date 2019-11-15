@@ -1,6 +1,6 @@
 #!/bin/bash
-# sudo bash
-# require sudo bash and sudo 
+# require sudo bash and sudo
+
 cd /opt/
 git clone https://github.com/ry4nzhu/Nextepc-Conf.git
 git clone https://github.com/ry4nzhu/OpenairInterface-Scheduler.git enb_folder
@@ -9,8 +9,8 @@ cd ue_folder
 git checkout -f v1.0.0
 cd ..
 # cp -Rf enb_folder ue_folder
-sudo chown -R ryanzhu ./enb_folder/
-sudo chown -R ryanzhu ./ue_folder/
+sudo chown -R $(whoami) ./enb_folder/
+sudo chown -R $(whoami) ./ue_folder/
 
 #edit ue_folder/openair3/NAS/TOOLS/ue_eurecom_test_sfr.conf
 
@@ -37,6 +37,9 @@ cp usim ../../cmake_targets/
 cp nvram ../../cmake_targets/
 cd /opt/ue_folder/cmake_targets/tools
 source init_nas_s1 UE
+
+myiface=$(ifconfig | grep -B1 10.10.1.1 | head -n1 | cut -d ':' -f1)
+# sed -i s/ENB_INTERFACE_NAME_FOR_S1_MME            = ".*"/ENB_INTERFACE_NAME_FOR_S1_MME            = "$myiface"/
 
 # configuration done
 
