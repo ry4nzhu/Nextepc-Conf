@@ -18,8 +18,8 @@ sudo git clone https://github.com/nextepc/nextepc
 git clone https://github.com/ry4nzhu/Nextepc-Conf.git
 cd nextepc
 autoreconf -iv
-./configure --prefix=`pwd`/install
-make -j `nproc`
+./configure --prefix="$(pwd)"/install
+make -j "$(nproc)"
 make install
 # exit
 # cd /opt/nextepc/webui
@@ -34,7 +34,7 @@ EOF
 sudo systemctl restart systemd-networkd
 sudo ip addr add 192.168.0.1/24 dev pgwtun
 sudo ip link set up dev pgwtun
-sudo iptables -t nat -A POSTROUTING -o `cat /var/emulab/boot/controlif` -j MASQUERADE
+sudo iptables -t nat -A POSTROUTING -o "$(cat /var/emulab/boot/controlif)" -j MASQUERADE
 cp /opt/nextepc.conf /opt/nextepc/install/etc/nextepc
 
 # edit conf files
