@@ -1,14 +1,14 @@
 #!/bin/bash
 # require sudo bash and sudo
 
-cd /opt/
+cd /opt/ || return
 git clone https://github.com/ry4nzhu/Nextepc-Conf.git
 git clone https://github.com/ry4nzhu/OpenairInterface-Scheduler.git enb_folder
 git clone https://gitlab.eurecom.fr/oai/openairinterface5g/ ue_folder
-cd ue_folder
+cd ue_folder || return
 git checkout -f v1.0.0
 cd ..
-# cp -Rf enb_folder ue_folder
+
 sudo chown -R "$(whoami)" ./enb_folder/
 sudo chown -R "$(whoami)" ./ue_folder/
 
@@ -39,17 +39,12 @@ cp nvram ../../cmake_targets/
 cd /opt/ue_folder/cmake_targets/tools &&
 source init_nas_s1 UE
 
+cp /opt/Nextepc-Conf/run_enb.sh /opt/enb_folder/cmake_targets/
+cp /opt/Nextepc-Conf/run_ue.sh /opt/ue_folder/cmake_targets/
+
+
 myiface=$(ifconfig | grep -B1 10.10.1.1 | head -n1 | cut -d ':' -f1)
 # sed -i s/ENB_INTERFACE_NAME_FOR_S1_MME            = ".*"/ENB_INTERFACE_NAME_FOR_S1_MME            = "$myiface"/
 
 # configuration done
-
-
-# cd /opt/enb_folder/cmake_targets
-#start enb
-# sudo -E ./lte_build_oai/build/lte-softmodem -O ../ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf > enb.log 2>&1 &
-
-#start ue
-# cd /opt/ue_folder/cmake_targets
-# sudo -E ./lte_build_oai/build/lte-uesoftmodem -O ../ci-scripts/conf_files/ue.nfapi.conf --L2-emul 3 --num-ues 2 --nums_ue_thread 2 > ue.log 2>&1 &
 
