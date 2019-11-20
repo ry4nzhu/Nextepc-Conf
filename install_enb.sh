@@ -44,7 +44,8 @@ cp /opt/Nextepc-Conf/run_ue.sh /opt/ue_folder/cmake_targets/
 
 
 myiface=$(ifconfig | grep -B1 10.10.1.1 | head -n1 | cut -d ':' -f1)
-# sed -i s/ENB_INTERFACE_NAME_FOR_S1_MME            = ".*"/ENB_INTERFACE_NAME_FOR_S1_MME            = "$myiface"/
+sed -i "s/ENB_INTERFACE_NAME_FOR_S1_MME            = \"enp6s0f1\"/ENB_INTERFACE_NAME_FOR_S1_MME            = \"$myiface\"/" /opt/enb_folder/ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf
+sed -i "s/ENB_INTERFACE_NAME_FOR_S1U               = \"enp6s0f1\";/ENB_INTERFACE_NAME_FOR_S1U               = \"$myiface\";/" /opt/enb_folder/ci-scripts/conf_files/rcc.band7.tm1.nfapi.conf
 
 # configuration done
 
