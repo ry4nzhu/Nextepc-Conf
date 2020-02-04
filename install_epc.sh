@@ -32,7 +32,7 @@ sudo ip link set up dev pgwtun
 sudo iptables -t nat -A POSTROUTING -o "$(cat /var/emulab/boot/controlif)" -j MASQUERADE
 
 # edit conf files
-cp /opt/nextepc.conf /opt/nextepc/install/etc/nextepc
+cp /opt/Nextepc-Conf/nextepc.conf /opt/nextepc/install/etc/nextepc
 
 # add subscriptors to the database
 # mongoimport --db [name] --collection [collectionname] --file [filename]
